@@ -1,4 +1,8 @@
-# 通过多个RGB最大值分类图片
+"""
+通过 RGB 相似值分类图片
+
+其中<欧氏距离>公式来源于 => https://www.cnblogs.com/yangshibiao/p/15826277.html
+"""
 
 import imghdr
 import glob
@@ -6,9 +10,10 @@ import math
 import numpy as np
 from PIL import Image
 
-# 读取数量排名前 max_colors 的像素颜色
-def read_image_RGB(image, max_colors = 5):
-    # 打开图片并转换为 RGB 格式
+def read_image(image, max_colors = 5):
+    """
+    打开图片并读取排名前 max_colors 的 RGB 列表
+    """
     img = Image.open(image)
     img_rgb = img.convert('RGB')
 
@@ -25,20 +30,23 @@ def read_image_RGB(image, max_colors = 5):
     counts_sort_idx = np.argsort(-counts)
     return colors[counts_sort_idx][:max_colors]
 
-# 读取数量排名前 max_colors 的像素颜色
-def read_image_path(path, max_colors = 5, filetype = {'jpg', 'png', 'jpeg'}):
+
+def read_path(path, max_colors = 5, filetype = {'jpg', 'png', 'jpeg'}):
+    """
+    打开图片并读取排名前 max_colors 的 RGB
+    """
     rgbs_list = {}  # 存储图片信息 和 图片的关键rgb值
     for file_abs in glob.glob(path):
         if imghdr.what(file_abs) in filetype:
             image_name = file_abs.replace(path.rstrip('*'), '')
-            image_rgbs = read_image_RGB(image = file_abs, max_colors = max_colors)
+            image_rgbs = read_image(image = file_abs, max_colors = max_colors)
             rgbs_list[image_name] = {"rgbs": image_rgbs, "filepath": file_abs}
     return rgbs_list
 
 
 def rgb_similarity(colors1, colors2):
     """
-    比较两个 RGB 颜色数组的相似度
+    计算两个 RGB 颜色数组的相似度
     :param colors1: 包含多个三元组 (R,G,B) 形式表示颜色值的列表或数组。
     :param colors2: 包含多个三元组 (R,G,B) 形式表示颜色值的列表或数组。
     :return: float, 表示颜色数组间的相似度值，范围在 [0, 1]。
