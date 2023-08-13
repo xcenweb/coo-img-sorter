@@ -1,6 +1,6 @@
 # coo-img-sorter
 
-[English](./)
+[English](./README.md) | [中文](./README_zh.md)
 
 Image sorting tool-box. You need to have `Python 3.8+` installed.
 
