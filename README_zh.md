@@ -1,6 +1,6 @@
 # coo-img-sorter
 
-[English](./README.md) | [中文](./README_zh.md)
+[English](./README.md) | [<u>中文</u>](./README_zh.md)
 
 图像分类工具箱。您需要安装 `Python 3.8+`。
 

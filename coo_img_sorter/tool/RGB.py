@@ -1,5 +1,5 @@
 """
-通过 RGB 相似值分类图片
+RGB相似值分类
 
 其中<欧氏距离>公式来源于 => https://www.cnblogs.com/yangshibiao/p/15826277.html
 """

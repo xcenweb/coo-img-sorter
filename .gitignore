@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+build
+coo_img_sorter.egg-info
+dist
+retest.py
+@note.md

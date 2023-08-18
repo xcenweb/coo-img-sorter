@@ -14,15 +14,18 @@ setuptools.setup(
     author_email="xcenweb@qq.com",
     url="https://github.com/xcenweb/coo-img-sorter",
 
-    description="多种图片分类工具脚手架",
+    keywords=["image", "sorter", "tools"],
+
+    description="an image sorter. 灵活的图片分类工具",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
     packages=[
-        "coo_imgSorter",
-        "coo_imgSorter.util",
+        "coo_img_sorter",
+        "coo_img_sorter.util",
     ],
 
     python_requires=">=3.8",
+    platforms=["all"],
     install_requires=requires.splitlines(),
 )

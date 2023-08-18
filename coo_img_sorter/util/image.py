@@ -1,6 +1,8 @@
-# 造个轮子QuQ，对图片编辑操作
+# 造个轮子QuQ，对图片一些编辑操作
 
+import cv2
 from PIL import Image, ImageDraw, ImageFont
+
 
 def add_text(image_path, text, position, font_path, font_size, fill, bg_fill=None):
     """
@@ -37,3 +39,28 @@ def add_text(image_path, text, position, font_path, font_size, fill, bg_fill=Non
     image.paste(bg_image, position)
 
     return image
+
+def same_size(image1, image2):
+    """
+    将两张通过 Image.open 加载的图片保持一致的尺寸
+    """
+    # 获取图像尺寸
+    width1, height1 = image1.size
+    width2, height2 = image2.size
+
+    # 确定目标尺寸
+    avg_width = max(width1, width2)
+    avg_height = max(height1, height2)
+
+    return image1.resize((avg_width, avg_height)), image2.resize((avg_width, avg_height))
+    
+
+def cv_same_size(image1, image2):
+    """
+    将两张通过 cv2.imread 加载的两张图片保持一致尺寸
+    """
+    height1, width1, _ = image1.shape
+    height2, width2, _ = image2.shape
+    avg_height = max(height1, height2)
+    avg_width = max(width1, width2)
+    return cv2.resize(image1, (avg_width, avg_height)), cv2.resize(image2, (avg_width, avg_height))
