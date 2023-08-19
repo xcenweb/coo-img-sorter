@@ -400,6 +400,5 @@ FodyWeavers.xsd
 build
 coo_img_sorter.egg-info
 dist
-retest.py
+whl.py
 @note.md
-test.py
