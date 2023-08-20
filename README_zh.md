@@ -51,3 +51,6 @@ pip install coo-img-sorter
   - [x] **RGB**
 
     使用`欧几里得距离`计算两组图像RGB的相似值
+
+- 分类速度
+  - [ ] 异步+多线程

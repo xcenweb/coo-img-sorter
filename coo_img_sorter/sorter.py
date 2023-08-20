@@ -21,8 +21,3 @@ def sorter(config={}):
             if len(sort_by) < 1: raise Exception("请至少指定一个分类依据")
             if len(sort_type) < 1: raise Exception("请至少指定一种分类方法")
             if len(input_path) < 1: raise Exception("请至少指定一个读取文件夹")
-
-def read_all_img(path):
-    """
-    从指定目录读取所有图片，返回所有图片绝对路径
-    """

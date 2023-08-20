@@ -2,7 +2,8 @@
 
 import os
 import shutil
-
+import glob
+import imghdr
 
 def move_file(file_path, target_dir):
     """
@@ -25,3 +26,15 @@ def move_file(file_path, target_dir):
     except Exception as e:
         print(f"Error: {e}")
         return False
+    
+
+def read_all_img(path, filetype={'jpg', 'png', 'jpeg'}):
+    """
+    从指定目录读取所有图片，返回所有图片绝对路径
+    {'name':{path:'__path__'}}
+    """
+    lists = {}
+    for file_abs in glob.glob(path):
+        if imghdr.what(file_abs) in filetype:
+            lists[os.path.basename(file_abs)] = {'path':file_abs}
+    return lists

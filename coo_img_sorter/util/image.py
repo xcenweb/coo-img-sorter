@@ -40,24 +40,20 @@ def add_text(image_path, text, position, font_path, font_size, fill, bg_fill=Non
 
     return image
 
-def same_size(image1, image2):
+def pil_same_size(image1, image2):
     """
-    将两张通过 Image.open 加载的图片保持一致的尺寸
+    将两张通过 Image.open (pillow) 加载的图片保持一致的尺寸
     """
-    # 获取图像尺寸
     width1, height1 = image1.size
     width2, height2 = image2.size
-
-    # 确定目标尺寸
     avg_width = max(width1, width2)
     avg_height = max(height1, height2)
-
     return image1.resize((avg_width, avg_height)), image2.resize((avg_width, avg_height))
     
 
 def cv_same_size(image1, image2):
     """
-    将两张通过 cv2.imread 加载的两张图片保持一致尺寸
+    将两张通过 cv2.imread (opencv) 加载的两张图片保持一致尺寸
     """
     height1, width1, _ = image1.shape
     height2, width2, _ = image2.shape

@@ -51,3 +51,6 @@ pip install coo-img-sorter
   - [x] **RGB**
     
     Calculate the similarity value of RGB between two sets of images using `Euclidean distance`.
+
+- Classification speed
+  - [ ] Asynchronous + multithreading
