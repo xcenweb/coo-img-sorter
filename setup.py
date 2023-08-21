@@ -23,6 +23,7 @@ setuptools.setup(
     packages=[
         "coo_img_sorter",
         "coo_img_sorter.util",
+        "coo_img_sorter.tool",
     ],
 
     python_requires=">=3.8",
